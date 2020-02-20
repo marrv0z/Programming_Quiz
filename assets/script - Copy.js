@@ -59,7 +59,7 @@ var options = [
 
 
 takeQuiz.addEventListener("click", function(event){
-    setTime();
+    //setTime();
     promptQ();
 
 });
@@ -82,16 +82,10 @@ function setTime() {
   }
 
   
-  //var buttons = ["buttonAA", "buttonBB", "buttonCC", "buttonDD"];
+  var buttons = ["buttonAA", "buttonBB", "buttonCC", "buttonDD"];
   //buttons = document.createElement("BUTTON"); 
-  var buttonAA = document.createElement("BUTTON"); 
-  var buttonBB = document.createElement("BUTTON"); 
-  var buttonCC = document.createElement("BUTTON"); 
-  var buttonDD = document.createElement("BUTTON"); 
-  var qs = document.createElement("h2");
   var score = 0;
 
-/*
   function clickButton(but, answr){
 
     for (var i =0;i<4;i++){
@@ -112,9 +106,10 @@ function setTime() {
     }
       
       
-  }*/
+  }
 
- var i = 0;
+ 
+
   function promptQ(){
       //setTime();
       var instructions = document.getElementById("quiz-intro");
@@ -122,14 +117,8 @@ function setTime() {
       //instructions.style.visibility = "hidden";
       instructions.style.visibility = "hidden";
       takeQuiz.style.visibility = "hidden";
+      var qs = document.createElement("h2");
       console.log(options[0].q);
-
-      qs.textContent = options[i].q;
-      buttonAA.textContent = options[i].answers.a;
-      buttonBB.textContent = options[i].answers.b;
-      buttonCC.textContent = options[i].answers.c;
-      buttonDD.textContent = options[i].answers.d;
-
       //var i =0;
       
       //var showQues = false;
@@ -150,7 +139,6 @@ function setTime() {
           
           
       }*/
-      /*
       for( var i = 0; i < options.length;)
           {
             qs.textContent = options[i].q;
@@ -158,28 +146,28 @@ function setTime() {
             buttonBB.textContent = options[i].answers.b;
             buttonCC.textContent = options[i].answers.c;
             buttonDD.textContent = options[i].answers.d;
-            clickButton(buttonAA,options[i].actA);
+            /*clickButton(buttonAA,options[i].actA);
             clickButton(buttonBB,options[i].actA);
             clickButton(buttonCC,options[i].actA);
-            clickButton(buttonDD,options[i].actA);
+            clickButton(buttonDD,options[i].actA);*/
 
             if(clickButton())
             {
               i++;
             }
     
-      }*/
+      }
 
       placeHere.appendChild(qs);
 
       var A = document.getElementById("btnA");
-      A.appendChild(buttonAA);
+      A.appendChild(buttons[0]);
       var B = document.getElementById("btnB");
-      B.appendChild(buttonBB);
+      B.appendChild(buttons[1]);
       var C = document.getElementById("btnC");
-      C.appendChild(buttonCC);
+      C.appendChild(buttons[2]);
       var D = document.getElementById("btnD");
-      D.appendChild(buttonDD);
+      D.appendChild(buttons[3]);
 
       //for (var i = 0; i <options.length; i++){
 
@@ -226,47 +214,4 @@ function setTime() {
         });
     }*/
       
-  }
-
-  buttonAA.addEventListener("click",function(event){
-    changeQ(options[i].answers.a);
-  });
-  buttonBB.addEventListener("click",function(event){
-    changeQ(options[i].answers.b);
-  });
-  buttonCC.addEventListener("click",function(event){
-    changeQ(options[i].answers.c);
-  });
-  buttonDD.addEventListener("click",function(event){
-    changeQ(options[i].answers.d);
-  });
-
-  function changeQ(s)
-  {
-      console.log("help me")
-      console.log(score);
-      if( s === options[i].actA)
-      {
-        i++;
-        score++;
-        if(score == 4)
-        {
-            endQuiz();
-        }
-        qs.textContent = options[i].q;
-        buttonAA.textContent = options[i].answers.a;
-        buttonBB.textContent = options[i].answers.b;
-        buttonCC.textContent = options[i].answers.c;
-        buttonDD.textContent = options[i].answers.d;
-      }
-      else{
-          secondsLeft = secondsLeft - 5;
-      }
-    
-
-  }
-
-  function endQuiz()
-  {
-    qs.textContent = score;
   }
